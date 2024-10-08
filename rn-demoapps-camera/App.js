@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Text, View, Pressable, Button } from 'react-native';
-import { Camera } from 'expo-camera';
+import { CameraView } from 'expo-camera';
 
 export default function App() {
   const [ready, setReady] = useState(false);
   let camera = useRef();
   const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.back);
+  const [type, setType] = useState(CameraView.Constants.Type.back);
 
   const takePic = () => {
     //take a picture
@@ -52,7 +52,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Camera Demo</Text>
-      <Camera
+      <CameraView
         style={styles.camera}
         type={type}
         ref={(r) => {
@@ -73,7 +73,7 @@ export default function App() {
             <Text style={styles.text}> Flip </Text>
           </Pressable>
         </View>
-      </Camera>
+      </CameraView>
       <Button
         title="Take Picture"
         style={styles.buttonTake}
